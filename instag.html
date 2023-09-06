@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="instag.css">
+    
+</head>
+
+<body>
+
+    <div id="entry" style="position: fixed;z-index: 2; height: 100%; width: 100%; background-color: #E1306C;">
+    
+        <div class="wrapper">
+            <section class="form signup">
+              <header style="padding-left: 130px;">Instagram</header>
+              <form>
+                <div class="name-details">
+                  <div class="field input">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" class="info" id="name" required>
+                  </div>
+                  <div class="field input">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Last Name" class="info" id="lname" required>
+                  </div>
+                </div>
+                <div class="field input">
+                  <label>Email Address</label>
+                  <input type="text" name="email" class="info" placeholder="Enter your email" required>
+              </div>
+              <div class="field input">
+                  <label>Password</label>
+                  <input type="password" name="password" class="info" placeholder="Enter new password" required>
+                  <i class="fas fa-eye"></i>
+              </div>
+              <!-- <div class="field image dflex">
+                  <label for="img">Select Image</label> 
+                  <label for="img" style="background-color: dodgerblue; width: 40%; border-radius: 5px; color: white; display: flex; justify-content: center; align-items: center; height: 5vh;">Upload Image</label>
+                  <input type="file" name="image" accept="image/*" style="display: none;" id="img" required>
+                </div> -->
+                <div class="field button">
+                    <input type="button" style="width: 100%;" name="submit" value="Continue to Chat" onclick="SignUps()">
+                </div>
+                <!-- this is another form  -->
+    
+                <!-- <form style="display: none;"> -->
+                    <div style="display: none;" id="newform">
+                  <div class="name-details" style="position: relative; left: -8px;">
+                    <div class="field input">
+                      <label>User Id</label>
+                      <input type="text" placeholder="User_Id" class="formnew" id="name" required>
+                    </div>
+                  </div>
+                  <div class="field input">
+                    <label>Bio</label>
+                    <input type="text" name="email" class="formnew" placeholder="Create your bio" required>
+                </div>
+                <label for="img">Select Image</label> 
+                <div class="field image dflex">
+                    <label for="img" style="background-color: dodgerblue; width: 40%; border-radius: 5px; color: white; display: flex; justify-content: center; align-items: center; height: 5vh;">Upload Image</label>
+                    <input type="file" name="image" class="formnew" accept="image/*" style="display: none;" id="img" required>
+                </div>
+                <div class="container-fluid dflex" id="finalbtn" style="width: 100%; height: 50px;" onclick="insta()">
+
+                    <!-- <strong>Your Profile</strong> -->
+                    See Your Profile
+
+                    <!-- <input type="button" style="width: 100%;" name="submit" value="Continue to Chat" onclick="SignUps()"> -->
+                </div>
+                    </div>
+                <!-- </form> -->
+            </form>
+            
+
+              <!-- <div class="link">Already signed up? <a href="login.php">Login now</a></div> -->
+          </section>
+          </div>
+        </div>
+
+    <div class="d-flex">
+        <div class="container-fluid border" id="nav">
+            <div class="mt-4 mb-5" style="margin-left: 1vw;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png" alt="Instagram" height="38vh" width="92vw">
+            </div>
+            <div class="container-fluid ni">Home</div>
+            <div class="container-fluid ni">Search</div>
+            <div class="container-fluid ni">Explore</div>
+            <div class="container-fluid ni">Reels</div>
+            <div class="container-fluid ni">Messages</div>
+            <div class="container-fluid ni">Notifications</div>
+            <div class="container-fluid ni" onclick="modals()">Create </div>
+            <div class="container-fluid ni">Profile</div>
+            <div class="container-fluid ni">More</div> 
+        </div>
+
+        <div id="modal" style="display: none; z-index: 1; position: fixed; overflow-y: hidden; height: 100%;width: 100%; background-color: rgba(0,0,0,0.4);">
+            <div class="modalcontent" style="height: auto;">
+                <!-- <span style="float: right;">&times;</span> -->
+                <div class="border-bottom container-fluid modalheaderd dflex" style="height: 50px; margin-top: 10px;"><h6>Create new post</h6></div>
+                <div id="input" class="container-fluid content d-flex justify-content-center align-items-center" style="padding-top: 90px; height: 190px; margin-top: 0px;">Select your photos and videos from here </div>
+                    <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 5px;">
+                        <input type="file" id="newpost" accept="image/*"> 
+                        <label for="newpost" style="margin-bottom: 2vh; height: 25px; margin-bottom: 10px;" id="nwpst">select from computer</label>
+                    </div>
+                <div class="border-top container-fluid" style="padding-bottom: 1vh; height: 40px; display: flex; justify-content: center; align-items: center; color: rgb(226, 37, 37);"><span>cancel</span></div>
+            </div>
+        </div>
+
+        <style>
+            .modalcontent{
+                border: 1px solid white;
+                border-radius: 10px;
+                height: 70vh;
+                width: 30vw;
+                background-color: white;
+            }
+            .content{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50vh;
+            }
+        </style>
+
+        <div class="container-fluid p-0" id="all">
+            <div class="container-fluid d-flex" id="head">
+                <div class="container-fluid border p-0" id="circular-div" onclick="opens()">
+                    <!-- <input style="display: none;" type="file" accept="image/*" id="file">
+                    <label for="file">Upload Photo</label> -->
+                </div>
+                <div class="container-fluid" id="whole">
+                    <!-- this is main head -->
+                    <div class="container d-flex marginbottom" id="marginbottom">
+                        <div class="marginright" id="profilename"></div>
+                        <div class="marginright"><input type="button" value="Edit Profile"></div>
+                        <div class="marginright"><input type="button" value="View Archive"></div>
+                        <div>settings</div>
+                    </div>
+                    <!-- this is followers -->
+                    <div class="container d-flex marginbottom">    
+                        <div class="marginrightf">0 Posts</div> 
+                        <div class="marginrightf">0 Followers</div>
+                        <div class="marginrightf">0 Following</div>
+                    </div>
+                    <!-- this is bio -->
+                    <div class="container" id="bio">this is bio</div>
+                </div>
+            </div>
+            <!-- this is border -->
+            <div class="container border" id="line"></div>
+            
+            <!-- you can add a border class here, it looks good -->
+            
+            <div class="container-fluid" id="post" style="height: auto;">
+                <div class="container-fluid d-flex align-items-center justify-content-center  align-content-space-between">
+                    <div class="marginright height" id="tposts" onclick="posts()" style="border-top: 1px solid black;">posts</div>
+                    <div class="marginright height" id="treels" onclick="reels()">reels</div>
+                    <div class="height" id="ttagged" onclick="tagged()">tagged</div>
+                </div>
+                <!-- <div class="bg-primary" id="posts">hello</div>
+                <div class="bg-success" id="reels">hello</div>
+                <div class="bg-warning" id="tagged">hello</div> -->
+
+                <div id="posts" class="container-fluid a">
+                    <!-- <div class="container-fluid d-flex">
+                    <div class="container-fluid h"></div>
+                    <div class="container-fluid h"></div>
+                    <div class="container-fluid h"></div>
+                    </div>
+                    <br>
+                    <div class="container-fluid d-flex">
+                        <div class="container-fluid h"></div>
+                        <div class="container-fluid h"></div>
+                        <div class="container-fluid h"></div>
+                        </div> -->
+    
+                </div>
+
+                <div id="reels"></div>
+
+                <div id="tagged" class="dflex" style="display: none;">
+                    <div class="dflex" style="flex-direction: column;">
+                        <div><strong><p><h2>Photos of You</h2></p></strong></div>
+                        <div><p>When people tag you in photos, they'll appear here.</p></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-fluid border-top d-flex justify-content-center mt-2 dflex" style="height: 40px;">English(UK) &copy; 2023 Instagram clone by Manav Dave</div>
+        </div>    
+    </div>
+
+                    <!-- this is a modal -->
+                    <div class="modal" id="dp" style="display: none; z-index: 1; position: fixed; overflow-y: hidden; height: 100%;width: 100%; background-color: rgba(0,0,0,0.4);">
+                        <div class="modalcontent" style="height: 40vh;">
+                            <div style="font-size: large; height: 35%;" class="dflex border-bottom"><strong>Change Profile Photo</strong></div>
+                            <div><input style="display: none;" type="file" accept="image/*" id="file">
+                                <label for="file" style="width: 100%; height: 9vh;" class="dflex border-bottom">Upload Photo</label></div>
+                            <div class="dflex border-bottom" style="height: 9vh; color: rgb(209, 49, 49);" onclick="nodp()">Remove current photo</div>
+                            <div class="cancel dflex" style="height: 20%; color: rgb(224, 45, 45);" onclick="closes()">cancel</div>
+                        </div>
+                    </div>
+                    
+</body>
+<script src="instag.js"></script>
+</html>
